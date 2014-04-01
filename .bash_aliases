@@ -11,12 +11,30 @@ if [ -f ~/android/ndk/ndk-build ]; then
 	alias ndkb='~/android/ndk/ndk-build'
 fi
 
+
+adbm() {
+	for SERIAL in $(adb devices | tail -n +2 | cut -sf 1);
+		do 
+			adb -s $SERIAL $@
+		done
+}
+
 #mutiple device install
-alias adbmi='adb devices | tail -n +2 | cut -sf 1 | xargs -iX adb -s X install -r'
+alias adbmi='adbm install -r'
 
 #multiple device uninstall
-alias adbmu='adb devices | tail -n +2 | cut -sf 1 | xargs -iX adb -s X uninstall'
+alias adbmu='adbm uninstall'
 
+#multiple device exec su command
+adbms() {
+	adbm shell su -c "$@"
+}
+
+
+#change device serial
+adbcs() {
+	adb shell su -c "echo $1 > /sys/class/android_usb/android0/iSerial"
+}
 ###############################################################################
 
 
@@ -25,21 +43,28 @@ alias adbmu='adb devices | tail -n +2 | cut -sf 1 | xargs -iX adb -s X uninstall
 
 #common commands
 ###############################################################################
-g() { 
-	grep -r "$1"
-}
-
-f() {
-	find -name "$1"
-}
-
-hg() {
-	history | grep "$1"
-}
-
+alias g="grep -r"
+alias f="find -name"
+alias hg="history | grep"
 alias r='reset'
 ###############################################################################
 
+
+
+
+
+#git commands
+###############################################################################
+alias gf="git fetch"
+alias gp="git pull"
+alias gpom="git pull origin master"
+alias gc="git checkout"
+alias gcb="git checkout -b"
+alias grh="git reset --hard"
+alias gl="git log"
+alias gb="git branch"
+alias gbd="git branch -D"
+###############################################################################
 
 
 
