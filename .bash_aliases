@@ -69,7 +69,7 @@ alias gbd="git branch -D"
 
 #custom commands, not under VCS
 ###############################################################################
-if [ -f ~/Linux-configs/.bash_aliases_custom ]; then
-    . ~/Linux-configs/.bash_aliases_custom
+if [ -f ~/bash-config/.bash_aliases_custom ]; then
+    . ~/bash-config/.bash_aliases_custom
 fi
 ###############################################################################
