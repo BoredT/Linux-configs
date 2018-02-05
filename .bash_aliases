@@ -73,3 +73,15 @@ if [ -f ~/bash-config/.bash_aliases_custom ]; then
     . ~/bash-config/.bash_aliases_custom
 fi
 ###############################################################################
+
+
+
+
+#auto-completion for all aliases
+###############################################################################
+
+if [ -f ~/bash-config/.alias_completion ]; then
+    . ~/bash-config/.alias_completion
+    alias_completion
+fi
+###############################################################################
