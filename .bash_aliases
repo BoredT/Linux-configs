@@ -1,5 +1,3 @@
-bind '"\t":menu-complete'
-
 #android
 ###############################################################################
 if [ -f ~/android/sdk/platform-tools/adb ]; then
