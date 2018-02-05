@@ -1,3 +1,2 @@
-:set expandtab
-:set tabstop=4
-
+:set noexpandtab
+:set tabstop=8
